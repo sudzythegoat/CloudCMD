@@ -7,7 +7,7 @@ import (
 
 func main {
     for {
-        coderunner := bufio.NewReader(os
+        coderunner := bufio.NewReader(os.Stdin)
         fmt.Println("> ")
         
     }
