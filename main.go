@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main {
-    var command, type string
-    fmt.Scanln(&command, &type)
+    var command, commandType string
+    fmt.Scanln(&command, &commandType)
     parseCmds()
 }
