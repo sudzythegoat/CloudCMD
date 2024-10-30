@@ -1,14 +1,9 @@
 package main
 
-import (
-    "fmt"
-    "bufio"
-)
+import "fmt"
 
 func main {
-    for {
-        coderunner := bufio.NewReader(os.Stdin)
-        fmt.Println("> ")
-        
-    }
+    var command, type string
+    fmt.Scanln(&command, &type)
+    parseCmds()
 }
