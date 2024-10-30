@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+  "fmt"
+  "CloudCMD/cmd"
+)
 
 func parseCmd(command) {
   if command == "help" {
