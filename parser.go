@@ -12,4 +12,7 @@ func parseCmd() {
   if command == "pystall" {
     pystall(commandType)
   }
+  if command == "sysinfo" {
+    sysinfo()
+  }
 }
