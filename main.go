@@ -4,6 +4,9 @@ import "fmt"
 
 func main() {
     var command, commandType string
-    fmt.Scanln(&command, &commandType)
-    parseCmds()
+    for {
+        fmt.Print("[>] ")
+        fmt.Scanln(&command, &commandType)
+        parseCmds()
+    }
 }
