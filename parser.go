@@ -10,6 +10,6 @@ func parseCmd() {
     doHelp(commandType)
   }
   if command == "pystall" {
-    doPystall(commandType)
+    pystall(commandType)
   }
 }
