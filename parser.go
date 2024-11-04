@@ -9,4 +9,8 @@ func parseCmd(command) {
   if command == "help" {
     doHelp(commandType)
   }
+  if command == "pystall" {
+    doPystall(commandType)
+  }
+  todo = "do{command}(commandtype)"
 }
