@@ -1,30 +1,33 @@
 using System;
-class MainClass
+namespace General
 {
-  static void Main(string[] args)
+  class MainClass
   {
-    while (true)
+    static void Main(string[] args)
     {
-      Console.Write("[>] ");
-      string command = Console.ReadLine();
-      parseCmds(command);
+      while (true)
+      {
+        Console.Write("[>] ");
+        string command = Console.ReadLine();
+        parseCmds(command);
+      }
     }
-  }
-  static void parseCmds(string command)
-  {
-    if (command.ToLower().StartsWith("help"))
+    static void parseCmds(string command)
     {
-      string second = command.Length > 4 ? command.Substring(4).Trim() : string.Empty;
-      cmds.doHelp(second);
-    } 
-    else if (command.ToLower().StartsWith("say"))
-    {
-      string words = command.Length > 3 ? command.Substring(4).Trim() : string.Empty;
-      Console.WriteLine($"[>] {words}");
-    }
-    else
-    {
-      Console.WriteLine($"[>] '{command}' does not exist");
+      if (command.ToLower().StartsWith("help"))
+      {
+        string second = command.Length > 4 ? command.Substring(4).Trim() : string.Empty;
+        cmds.doHelp(second);
+      } 
+      else if (command.ToLower().StartsWith("say"))
+      {
+        string words = command.Length > 3 ? command.Substring(4).Trim() : string.Empty;
+        Console.WriteLine($"[>] {words}");
+      }
+      else
+      {
+        Console.WriteLine($"[>] '{command}' does not exist");
+      }
     }
   }
 }
