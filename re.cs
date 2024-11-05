@@ -1,5 +1,5 @@
 using System;
-class Main
+class MainClass
 {
   static void Main(string[] args)
   {
@@ -7,15 +7,24 @@ class Main
     {
       Console.Write("[>] ");
       string command = Console.ReadLine();
-      parseCmds();
+      parseCmds(command);
     }
   }
-  static void parseCmds()
+  static void parseCmds(string command)
   {
-    if (command == "help")
+    if (command.ToLower().StartsWith("help"))
     {
-      string second = command[4:]
-      cmds.doHelp(second)
+      string second = command.Length > 4 ? command.Substring(4).Trim() : string.Empty;
+      cmds.doHelp(second);
+    } 
+    else if (command.ToLower().StartsWith("say"))
+    {
+      string words = command.Length > 3 ? command.Substring(4).Trim() : string.Empty;
+      Console.WriteLine($"[>] {words}");
+    }
+    else
+    {
+      Console.WriteLine($"[>] '{command}' does not exist");
     }
   }
 }
