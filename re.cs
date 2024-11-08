@@ -1,50 +1,39 @@
-using System;
-using System.Diagnostics;
-namespace General
+Console.Title = "CloudCMD";
+string version = "[v1.0.1]";
+Console.WriteLine($"CloudCMD {version}\n");
+Console.WriteLine("Enter 'help' to learn the commands\n");
+while (true)
 {
-  class MainClass
-  {
-    static System.Diagnostics.Process process = new System.Diagnostics.Process();
-    static System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-    static void Main(string[] args)
+    Console.Write("CloudCMD\\>");
+    string command = Console.ReadLine();
+    string phrase = "";
+    if (command.StartsWith("help"))
     {
-      while (true)
-      {
-        Console.Write("[>] ");
-        string command = Console.ReadLine();
-        parseCmds(command);
-      }
+        if (command != "help")
+        {
+            phrase = command.Substring(5);
+            if (phrase == "say")
+            {
+                Console.WriteLine("'say' repeates a phrase back\nex. 'say Hello World!' returns 'Hello World'");
+            }
+        }
+        else if (command == "help")
+        {
+            Console.WriteLine("Helps with a command\nex. 'help say' returns info for the say command\nAvalible Commands:\nhelp\nsay");
+        }
     }
-    static void parseCmds(string command)
+    else if (command == "clear")
     {
-      if (command.ToLower().StartsWith("help"))
-      {
-        string second = command.Length > 4 ? command.Substring(4).Trim() : string.Empty;
-        cmds.doHelp(second);
-      } 
-      else if (command.ToLower().StartsWith("say"))
-      {
-        string words = command.Length > 3 ? command.Substring(3).Trim() : string.Empty;
-        Console.WriteLine($"[>] {words}");
-      }
-      else if (command.ToLower().StartsWith("pystall"))
-      {
-        string package = command.Length > 7 ? command.Substring(7).Trim() : string.Empty;
-        startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-        startInfo.FileName = "cmd.exe";
-        startInfo.Arguments = $"/C pip install {package}"; // Corrected to execute with cmd /C
-        startInfo.RedirectStandardOutput = true;
-        startInfo.RedirectStandardError = true;
-        startInfo.UseShellExecute = false;
-        startInfo.CreateNoWindow = true;
-        process.StartInfo = startInfo;
-        process.Start();
-      }
-      else if (command.ToLower().StartsWith("run")
-      else
-      {
-        Console.WriteLine($"[>] '{command}' does not exist");
-      }
+        Console.Clear();
+        Console.WriteLine($"CloudCMD {version}\n");
+        Console.WriteLine("Enter 'help' to learn the commands\n");
     }
-  }
+    else if (command.StartsWith("say"))
+    {
+        if (command != "say")
+        {
+            string tosay = command.Substring(5);
+        }
+    }
+    else { Console.WriteLine($"'{command}' does not exist"); }
 }
